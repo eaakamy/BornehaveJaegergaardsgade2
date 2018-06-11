@@ -1,0 +1,3531 @@
+/* GLOBAL */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input, textarea {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+@font-face {
+    font-family: voresfont;
+    src: url(../font-renner/renner-light.otf);
+}
+
+body {
+    font-family: voresfont;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+
+/* MOBIL */
+
+@media (max-width: 767px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    /* MENU */
+    header {
+        width: 100%;
+        top: 13px;
+        z-index: 1;
+    }
+    .ac {
+        display: none;
+    }
+
+    /* LOGO */
+    .logo img {
+        width: 80%;
+        position: absolute;
+    }
+
+    /* BURGERMENU STARTER HER */
+    #burgerpunkter a {
+        text-decoration: none;
+        color: black;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    #farve-indmeldelse {
+        font-weight: bold;
+        margin-bottom: 4%;
+    }
+
+    #burgermenu {
+        display: inline-block;
+        position: fixed;
+        top: 26px;
+        right: 20px;
+        z-index: 3;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #burgermenu input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 2;
+    }
+
+    /* DE TRE STREGER I BURGEREN */
+    .burgerspan {
+        display: block;
+        width: 40px;
+        height: 6px;
+        margin-bottom: 12%;
+        position: relative;
+        background: rgb(0, 182, 224);
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+
+    }
+
+    .burgerspan:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    .burgerspan:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    /* DE TRE BURGER STREGET BLIVER TRANSFORMERET TIL ET KRYDS */
+    #burgermenu input:checked ~ .burgerspan {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: black;
+    }
+
+    /* DET MIDTERSTE KRYDS */
+    #burgermenu input:checked ~ .burgerspan:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /* DEN NEDERSTE PIL GÅR OVER DEN ØVERSTE */
+    #burgermenu input:checked ~ .burgerspan:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    /* PLACERES TIL HØJRE */
+    #burgerpunkter {
+        position: absolute;
+        width: 300px;
+        margin: -110px 0 0 0;
+        padding: 125px 70px 10px 0px;
+        right: -100px;
+        background-color: rgba(92, 181, 223, 0.91);
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    }
+
+    #burgerpunkter li {
+        text-align: center;
+        padding: 14px 0px;
+        font-size: 1.2em;
+    }
+
+    /* HER KOMMER DEN IND FRA HØJRE SIDE */
+    #burgermenu input:checked ~ ul {
+        transform: scale(1.0, 1.0);
+        display: block;
+        opacity: 1;
+    }
+
+    /* BURGERMENU SLUT */
+    /************************************ FORSIDE ************************************/
+    #home {
+        height: 100vh;
+        width: 100%;
+        background-image: url(../images/forside2.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #home h4 {
+        font-size: 1.1em;
+    }
+
+    .pagetext {
+        width: 80%;
+        position: absolute;
+        z-index: 1;
+        margin-top: 50%;
+        padding: 5%;
+        line-height: 1.5;
+        background-color: rgba(0, 0, 0, 0.35);
+        color: white;
+    }
+
+    .forside-pil {
+        width: 15%;
+        display: block;
+        margin: 0 auto;
+        margin-top: -40%;
+        margin-bottom: 20%;
+    }
+    /************************************ FORSIDE SLUT ************************************/
+    /* SLIDESHOW*/
+    .slick-slider {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .slick-list:focus {
+        outline: none;
+    }
+
+    .slick-list.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .slick-slider .slick-track,
+    .slick-slider .slick-list {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .slick-track:before,
+    .slick-track:after {
+        display: table;
+        content: '';
+    }
+
+    .slick-track:after {
+        clear: both;
+    }
+
+    .slick-loading .slick-track {
+        visibility: hidden;
+    }
+
+    .slick-slide {
+        display: none;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+    }
+
+    [dir='rtl'] .slick-slide {
+        float: right;
+    }
+
+    .slick-slide img {
+        display: block;
+    }
+
+    .slick-slide.slick-loading img {
+        display: none;
+    }
+
+    .slick-slide.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized .slick-slide {
+        display: block;
+    }
+
+    .slick-loading .slick-slide {
+        visibility: hidden;
+    }
+
+    .slick-vertical .slick-slide {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
+
+    .regular {
+        display: none;
+    }
+    .slick-prev:before {
+        display: none;
+    }
+    .slick-next:before {
+        display: none;
+    }
+
+    .b-anmeldelse {
+        border-radius: 50%;
+    }
+    .name {
+        text-align: center;
+        margin-top: 5%;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .review {
+        font-size: 18px;
+        margin-top: 3%;
+        line-height: 1.4;
+    }
+
+
+    .lazy {
+        display: none;
+    }
+
+
+    .slider {
+        width: 80%;
+        margin: 10%;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+    }
+
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+    /*SLIDESHOW SLUT*/
+    /* HOME SLUT */
+    /* GALLERI SECTION */
+    #galleri {
+        text-align: center;
+        margin-bottom: 10%;
+        font-size: 1.6em;
+        margin-top: 34%
+    }
+
+    .anmeldelser {
+        text-align: center;
+        font-size: 1.6em;
+        margin-top: 25%;
+
+    }
+    /* GALLERI SECTION SLUT */
+    /************************************ OM OS ************************************/
+    #om-os {
+        height: 100vh;
+        width: 100%;
+        background-image: url(../images/om.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    /* PERSONALE SECTION */
+    #opersonale {
+        text-align: center;
+        font-size: 1.6em;
+        margin-top: 40%;
+        margin-bottom: -5%;
+    }
+
+    .personale {
+        border-radius: 50%;
+    }
+
+    .ptekst {
+        text-align: center;
+        font-size: 1.2em;
+        margin-top: 1%;
+    }
+
+    .ptekst1 {
+        text-align: center;
+        font-size: 1em;
+    }
+
+    /* PERSONALE SECTION SLUT */
+    /* IKONER SECTION */
+    table {
+        margin: 0 5% 0 5%;
+    }
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th,
+    td {
+        padding: 5px;
+    }
+    .farve {
+        background-color: rgba(121, 156, 42, 0.4);
+    }
+    .blaa {
+        background-color: rgba(92, 181, 223, 0.1);
+    }
+
+    #table {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 20%;
+        margin-top: 30%;
+    }
+
+    .narvar img {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .kontaktinfo {
+        margin-top: 2%;
+    }
+    .narvartekst {
+        text-align: center;
+        margin-bottom: 12%;
+    }
+    /* IKONER SECTION SLUT */
+    /************************************ OM OS SIDE SLUT ************************************/
+    /************************************ PRAKTISK SIDE ************************************/
+    #praktisk-billede {
+        height: 100vh;
+        width: 100%;
+        background-image: url(../images/baggrund-praktisk.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    #praktisk-billede h1 {
+        font-size: 1.4em;
+    }
+
+    #praktisk-tabel {
+        width: 80%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 40%;
+        margin-bottom: 20%;
+    }
+
+    .praktisk-tre {
+        padding: 15%;
+        border: 1px solid #799c2a;
+    }
+
+    .kontaktinfo,
+    .kontaktinfo1 {
+        text-align: center;
+    }
+
+    input[type=button] {
+        margin: 0 auto;
+        display: block;
+        width: 50%;
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: #799c2a;
+        color: white;
+        border: 1px solid #799c2a;
+        margin-top: 4%;
+        font-size: 0.90em;
+    }
+
+    /* MADPLAN SECTION */
+    .kryds {
+        position: relative;
+        top: 10px;
+        right: 30px;
+        background: #cc3131;
+        border-radius: 3em;
+        color: #fff;
+        margin-left: 95%;
+        font-size: 1.25em;
+        padding: .4em .7em;
+        cursor: pointer;
+        z-index: 1;
+    }
+    .icons-flex-container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.29);
+    }
+
+    #mad {
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 40%;
+    }
+
+    #mad h1 {
+        margin: 2% 5% 2% 5%;
+        padding-top: 2%;
+    }
+
+    #mad p {
+        line-height: 21px;
+        margin: 2% 5% 2% 5%;
+    }
+
+    .icons-flex-container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.29);
+    }
+
+    .kids {
+        width: 100%;
+        margin-top: 2%;
+        padding: 4%;
+    }
+    /* MADPLAN SECTION SLUT */
+    /* HVERDAG I BØRNEHAVEN SECTION */
+    #hverdag {
+        width: 90%;
+        margin: auto;
+        margin-top: 40%;
+    }
+
+    #hverdag td {
+        line-height: 21px;
+    }
+    /* HVERDAG SECTION SLUT */
+    /* KALENDER SECTION  */
+    .icons-flex-container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.29);
+    }
+    #calendar {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        width: 420px;
+        margin: 0 auto;
+        height: 570px;
+        overflow: hidden;
+    }
+    /* Måned */
+    .header {
+        height: 50px;
+        width: 420px;
+        background: rgba(164, 164, 164, 1);
+        text-align: center;
+        position: relative;
+        z-index: 100;
+    }
+
+    .header h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        line-height: 50px;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+    /* Pilene i header */
+    .left,
+    .right {
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        top: 50%;
+        margin-top: -7.5px;
+        cursor: pointer;
+    }
+
+    .left {
+        border-width: 7.5px 10px 7.5px 0;
+        border-color: transparent rgba(0, 0, 0, 0.50) transparent transparent;
+        left: 20px;
+    }
+
+    .right {
+        border-width: 7.5px 0 7.5px 10px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.50);
+        right: 20px;
+    }
+    /* Alle månederne - frem og tilbage funktion */
+    .month {
+        /*overflow: hidden;*/
+        opacity: 0;
+    }
+
+    .month.new {
+        -webkit-animation: fadeIn 1s ease-out;
+        opacity: 1;
+    }
+
+    .month.in.next {
+        -webkit-animation: moveFromTopFadeMonth .4s ease-out;
+        -moz-animation: moveFromTopFadeMonth .4s ease-out;
+        animation: moveFromTopFadeMonth .4s ease-out;
+        opacity: 1;
+    }
+
+    .month.out.next {
+        -webkit-animation: moveToTopFadeMonth .4s ease-in;
+        -moz-animation: moveToTopFadeMonth .4s ease-in;
+        animation: moveToTopFadeMonth .4s ease-in;
+        opacity: 1;
+    }
+
+    .month.in.prev {
+        -webkit-animation: moveFromBottomFadeMonth .4s ease-out;
+        -moz-animation: moveFromBottomFadeMonth .4s ease-out;
+        animation: moveFromBottomFadeMonth .4s ease-out;
+        opacity: 1;
+    }
+
+    .month.out.prev {
+        -webkit-animation: moveToBottomFadeMonth .4s ease-in;
+        -moz-animation: moveToBottomFadeMonth .4s ease-in;
+        animation: moveToBottomFadeMonth .4s ease-in;
+        opacity: 1;
+    }
+    /* Frem og tilbage funktion slut */
+    .week {
+        background: white;
+    }
+
+    .day {
+        display: inline-block;
+        width: 60px;
+        padding: 10px;
+        text-align: center;
+        vertical-align: top;
+        cursor: pointer;
+        background: white;
+        position: relative;
+        z-index: 100;
+    }
+    /* Dage der ikke er med i denne mdr.*/
+    .day.other {
+        color: black;
+    }
+    /* Nuværende dag*/
+    .day.today {
+        color: rgba(156, 202, 235, 1);
+    }
+    /* Man- fre navne*/
+    .day-name {
+        font-size: 9px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: black;
+        letter-spacing: .7px;
+    }
+    /* dage nummer */
+    .day-number {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+        color: black;
+    }
+
+    /* Styling af det der sker på dagene*/
+    .day .day-events {
+        list-style: none;
+        margin-top: 3px;
+        text-align: center;
+        height: 12px;
+        line-height: 6px;
+        overflow: hidden;
+    }
+    /* Styrer prikkernes størrelse*/
+    .day .day-events span {
+        vertical-align: top;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: 5px;
+        height: 5px;
+        line-height: 5px;
+        margin: 0 1px;
+    }
+    /* prikkernes farver */
+    .blue {
+        background: rgba(156, 202, 235, 1);
+    }
+    .orange {
+        background: rgba(247, 167, 0, 1);
+    }
+    .red {
+        background: rgba(237, 18, 40, 1);
+    }
+    .green {
+        background: rgba(119, 156, 42, 1);
+    }
+    /* Boks til tekst, når der sker noget */
+    .details {
+        position: relative;
+        width: 420px;
+        height: 75px;
+        background: rgba(164, 164, 164, 1);
+        margin-top: 5px;
+        border-radius: 4px;
+    }
+
+    .details.in {
+        -webkit-animation: moveFromTopFade .5s ease both;
+        -moz-animation: moveFromTopFade .5s ease both;
+        animation: moveFromTopFade .5s ease both;
+    }
+
+    .details.out {
+        -webkit-animation: moveToTopFade .5s ease both;
+        -moz-animation: moveToTopFade .5s ease both;
+        animation: moveToTopFade .5s ease both;
+    }
+    /* pilen til boksen */
+    .arrow {
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        margin-left: -2px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+        transition: all 0.7s ease;
+    }
+    /* tekst inde i boksen */
+    .events {
+        height: 75px;
+        padding: 7px 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .events.in {
+        -webkit-animation: fadeIn .3s ease both;
+        -moz-animation: fadeIn .3s ease both;
+        animation: fadeIn .3s ease both;
+    }
+
+    .events.in {
+        -webkit-animation-delay: .3s;
+        -moz-animation-delay: .3s;
+        animation-delay: .3s;
+    }
+
+    .details.out .events {
+        -webkit-animation: fadeOutShrink .4s ease both;
+        -moz-animation: fadeOutShink .4s ease both;
+        animation: fadeOutShink .4s ease both;
+    }
+
+    .events.out {
+        -webkit-animation: fadeOut .3s ease both;
+        -moz-animation: fadeOut .3s ease both;
+        animation: fadeOut .3s ease both;
+    }
+    /* Styling af tekst i boksen */
+    .event {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: .5px;
+        padding: 2px 16px;
+        vertical-align: top;
+    }
+
+    .event.empty {
+        color: #eee;
+    }
+
+    .event-category {
+        height: 10px;
+        width: 10px;
+        display: inline-block;
+        margin: 6px 0 0;
+        vertical-align: top;
+    }
+
+    .event span {
+        display: inline-block;
+        padding: 0 0 0 7px;
+    }
+    /* boksen til kategorierne */
+    .legend {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background: white;
+        line-height: 30px;
+
+    }
+
+    .entry {
+        position: relative;
+        padding: 0 0 0 25px;
+        font-size: 13px;
+        display: inline-block;
+        line-height: 30px;
+        background: transparent;
+        color: black;
+    }
+
+    .entry:after {
+        position: absolute;
+        content: '';
+        height: 5px;
+        width: 5px;
+        top: 12px;
+        left: 14px;
+    }
+
+    .entry.blue:after {
+        background: rgba(156, 202, 235, 1);
+    }
+    .entry.orange:after {
+        background: rgba(247, 167, 0, 1);
+    }
+    .entry.red:after {
+        background: rgba(237, 18, 40, 1);
+    }
+    .entry.green:after {
+        background: rgba(119, 156, 42, 1);
+    }
+
+    /* Animations are cool!  */
+    @-webkit-keyframes moveFromTopFade {
+        from {
+            opacity: .3;
+            height: 0px;
+            margin-top: 0px;
+            -webkit-transform: translateY(-100%);
+        }
+    }
+    @-moz-keyframes moveFromTopFade {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            -moz-transform: translateY(-100%);
+        }
+    }
+    @keyframes moveFromTopFade {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            transform: translateY(-100%);
+        }
+    }
+
+    @-webkit-keyframes moveToTopFade {
+        to {
+            opacity: .3;
+            height: 0px;
+            margin-top: 0px;
+            opacity: 0.3;
+            -webkit-transform: translateY(-100%);
+        }
+    }
+    @-moz-keyframes moveToTopFade {
+        to {
+            height: 0px;
+            -moz-transform: translateY(-100%);
+        }
+    }
+    @keyframes moveToTopFade {
+        to {
+            height: 0px;
+            transform: translateY(-100%);
+        }
+    }
+
+    @-webkit-keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(-30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -moz-transform: translateY(-30%);
+        }
+    }
+    @keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -moz-transform: translateY(-30%);
+        }
+    }
+
+    @-webkit-keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -moz-transform: translateY(30%);
+        }
+    }
+    @keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -moz-transform: translateY(30%);
+        }
+    }
+
+    @-webkit-keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        }
+    }
+    @keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        }
+    }
+
+    @-webkit-keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%);
+        }
+    }
+    @keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%);
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+    @-moz-keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+    @keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+
+    /* KALENDER SECTION SLUT */
+    /************************************ PRAKTISK SIDE SLUT ************************************/
+    /************************************ INDMELDELSE SIDE ************************************/
+    #indmeldelse-billede {
+        height: 100vh;
+        width: 100%;
+        background-image: url(../images/baggrund-indmeldelse.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .overskrift-indhold {
+        text-align: center;
+        margin-bottom: 4%;
+    }
+    #indmeldelsetekst {
+        width: 80%;
+        margin: 0 auto;
+        display: block;
+        margin-top: 40%;
+        margin-bottom: 12%;
+        line-height: 1.5;
+    }
+
+    #indmeldelse-billede h4 {
+        font-size: 1.1em;
+    }
+
+
+    /*bokse man kan skrive i */
+    input[type=text],
+    textarea {
+        width: 80%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin: 1% 10% 3% 10%;
+        resize: vertical;
+    }
+    #comment {
+        height: 150px;
+    }
+    /*INDMELDER KNAP */
+    input[type=submit] {
+        background-color: #559f01;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 1% 10% 20% 10%;
+        width: 80%;
+        font-size: 1em;
+        font-family: voresfont;
+        text-transform: uppercase;
+    }
+
+    /* STYLING AF TEKST*/
+    .contacttext {
+        text-align: left;
+        margin: 0 10% 0 10%;
+    }
+    #registration {
+        text-align: center;
+        margin-bottom: 4%;
+        margin-top: 10%;
+        font-size: 1.4em;
+    }
+    /************************************ INDMELDELSE SIDE SLUT ************************************/
+    /************************************ FOOTER ************************************/
+    #footer {
+        margin-top: 20%;
+    }
+    #map {
+        height: 200px;
+        width: 61%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+
+    .info,
+    .info1 {
+        margin: 0 auto;
+        display: block;
+        width: 75%;
+    }
+
+    .info {
+        text-decoration: none;
+    }
+
+    .kontaktinfo,
+    .abningstider {
+        text-align: center;
+    }
+
+    .abningstider {
+        margin-top: 3%;
+    }
+
+    .ugedage {
+        line-height: 28px;
+        text-align: center;
+        margin-bottom: 2%;
+    }
+
+    .some {
+        font-size: 2.4em;
+        text-align: center;
+        color: white;
+        background-color: #5cb5df;
+        padding: 0.4%;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    .somelink {
+        text-decoration: none;
+        color: white;
+    }
+
+    .footer-item {
+        border-top: 1px solid rgb(92, 181, 223);
+        border-right: 1px solid rgb(92, 181, 223);
+        border-left: 1px solid rgb(92, 181, 223);
+        padding-bottom: 1.4%;
+        padding-top: 1%;
+        background-color: rgba(92, 181, 222, 0.08);
+    }
+
+    .footer-item i {
+        font-size: 1.4em;
+        text-align: inherit;
+        color: #559f06;
+    }
+    /************************************ FOOTER SLUT ************************************/
+}
+
+
+/* TABLET */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /* HEADER */
+    header {
+        width: 100%;
+        top: 13px;
+        z-index: 1;
+    }
+
+    .logo {
+        width: 80%;
+        position: absolute;
+    }
+    .sol-menu {
+        display: none;
+    }
+
+
+    /* BURGERMENU */
+    #burgerpunkter a {
+        text-decoration: none;
+        color: black;
+        text-transform: uppercase;
+        transition: color 0.3s ease;
+    }
+
+    #farve-indmeldelse {
+        font-weight: bold;
+        margin-bottom: 4%;
+    }
+
+    #burgermenu {
+        display: inline-block;
+        position: fixed;
+        top: 40px;
+        right: 20px;
+        z-index: 3;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    #burgermenu input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        /* hide this */
+        z-index: 2;
+    }
+
+    .burgerspan {
+        display: block;
+        width: 40px;
+        height: 6px;
+        margin-bottom: 12%;
+        position: relative;
+        background: rgb(0, 182, 224);
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+
+    }
+
+    .burgerspan:first-child {
+        transform-origin: 0% 0%;
+    }
+
+    .burgerspan:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+
+    /* BLIVER TIL ET KRYDS */
+    #burgermenu input:checked ~ .burgerspan {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: black;
+    }
+
+    /* DET MIDTERSTE KRYDS */
+    #burgermenu input:checked ~ .burgerspan:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+
+    /* DEN NEDERSTE PIL GÅR OVER DEN ØVERSTE */
+    #burgermenu input:checked ~ .burgerspan:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+
+    /* PLACERES TIL HØJRE */
+    #burgerpunkter {
+        position: absolute;
+        width: 300px;
+        margin: -110px 0 0 0;
+        padding: 125px 70px 10px 0px;
+        right: -100px;
+        background-color: rgba(92, 181, 223, 0.91);
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    }
+
+    #burgerpunkter li {
+        text-align: center;
+        padding: 14px 0px;
+        font-size: 1.2em;
+    }
+
+    /* HER KOMMER DEN IND FRA HØJRE SIDE */
+    #burgermenu input:checked ~ ul {
+        transform: scale(1.0, 1.0);
+        display: block;
+        opacity: 1;
+    }
+
+    /* BURGERMENU SLUT */
+    /*MENU SLUT*/
+    /************************************ FORSIDE ************************************/
+    .forside-pil {
+        width: 10%;
+        display: block;
+        margin: 0 auto;
+        margin-top: -20%;
+        margin-bottom: 20%;
+    }
+
+    #home {
+        height: 100vh;
+        background-image: url(../images/forside2.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #home h4 {
+        font-size: 1.2em;
+    }
+
+    .pagetext {
+        position: absolute;
+        z-index: 1;
+        margin-top: 30%;
+        padding: 5%;
+        line-height: 1.5;
+        width: 60%;
+        background-color: rgba(0, 0, 0, 0.35);
+        color: white;
+    }
+
+    /* GALLERY */
+    #galleri {
+        font-size: 1.6em;
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: -3%;
+    }
+
+    /* SLIDESHOW*/
+    .slick-slider {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+    }
+
+    .slick-list:focus {
+        outline: none;
+    }
+
+    .slick-list.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .slick-slider .slick-track,
+    .slick-slider .slick-list {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .slick-track:before,
+    .slick-track:after {
+        display: table;
+        content: '';
+    }
+
+    .slick-track:after {
+        clear: both;
+    }
+
+    .slick-loading .slick-track {
+        visibility: hidden;
+    }
+
+    .slick-slide {
+        display: none;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+    }
+
+    [dir='rtl'] .slick-slide {
+        float: right;
+    }
+
+    .slick-slide img {
+        display: block;
+    }
+
+    .slick-slide.slick-loading img {
+        display: none;
+    }
+
+    .slick-slide.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized .slick-slide {
+        display: block;
+    }
+
+    .slick-loading .slick-slide {
+        visibility: hidden;
+    }
+
+    .slick-vertical .slick-slide {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
+
+    .regular {
+        display: none;
+    }
+
+    .slick-prev:before {
+        display: none;
+    }
+    .slick-next:before {
+        display: none;
+    }
+
+    .b-anmeldelse {
+        border-radius: 50%;
+    }
+
+
+    .name {
+        text-align: center;
+        margin-top: 5%;
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .review {
+        font-size: 18px;
+        margin-top: 3%;
+        line-height: 1.4;
+    }
+
+    .lazy {
+        display: none;
+    }
+
+    .anmeldelser {
+        text-align: center;
+        margin-top: 16%;
+        font-size: 1.6em;
+    }
+
+
+
+    .slider {
+        width: 80%;
+        margin: 10%;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+    }
+
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+    /* SLIDESHOW SLUT*/
+    /************************************ FORSIDE SLUT ************************************/
+    /************************************ INDMELDELSE SIDE ************************************/
+    #indmeldelse-billede {
+        height: 100vh;
+        background-image: url(../images/baggrund-indmeldelse.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #indmeldelse-billede h4 {
+        font-size: 1.2em;
+    }
+
+    /*BOKS MED TEKST MAN KAN SKRIVE I*/
+    input[type=text],
+    textarea {
+        width: 40%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin: 1% 30% 2% 30%;
+        resize: vertical;
+
+    }
+    #comment {
+        height: 150px;
+    }
+
+    /*INDMELDER KNAP */
+    input[type=submit] {
+        background-color: #559f01;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 1% 30% 0.4% 30%;
+        width: 40%;
+        text-transform: uppercase;
+        font-family: voresfont;
+        font-size: 1em;
+    }
+
+    /* STYLING AF TEKST*/
+    .contacttext {
+        text-align: left;
+        margin: 0 30% -0.8% 30%;
+    }
+    #registration {
+        text-align: center;
+        margin-bottom: 4%;
+        font-size: 2em;
+    }
+    #indmeldelsetekst {
+        width: 40%;
+        margin: 0 auto;
+        line-height: 1.5;
+        margin-bottom: 4%;
+    }
+    .overskrift-indhold {
+        text-align: center;
+        margin-bottom: 4%;
+    }
+
+
+    /************************************ INDMELDELSE SIDE SLUT ************************************/
+    /************************************ OM OS SIDE ************************************/
+    #om-os {
+        height: 100vh;
+        background-image: url(../images/om.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .personale {
+        border-radius: 50%;
+    }
+
+    #opersonale {
+        text-align: center;
+        font-size: 1.6em;
+        margin-bottom: -5%;
+    }
+
+    .regular {
+        display: none;
+    }
+
+    .ptekst {
+        text-align: center;
+        font-size: 1.6em;
+        margin-top: 2%;
+    }
+
+    .ptekst1 {
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    #table {
+        width: 40%;
+        margin: 0 auto;
+        display: block;
+        margin-top: 16%;
+        margin-bottom: 10%;
+    }
+
+    .narvar {
+        margin-top: 12%;
+
+    }
+
+    .narvar img {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .narvar p {
+        text-align: center;
+        font-size: 1.1em;
+        margin-top: 2%;
+    }
+
+    /* OM OS SIDE SLUT */
+    /* PRAKTISK SIDE */
+    #praktisk-billede {
+        height: 100vh;
+        background-image: url(../images/baggrund-praktisk.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #praktisk-tabel {
+        width: 50%;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 10%;
+    }
+
+    .praktisk-tre {
+        padding: 20%;
+        text-align: center;
+        border: 1px solid #799c2a;
+    }
+
+    input[type=button] {
+        width: 50%;
+        margin: auto;
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: #799c2a;
+        color: white;
+        border: 1px solid #799c2a;
+        margin-top: 4%;
+        font-size: 0.90em;
+    }
+
+    .kryds {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        background: #cc3131;
+        border-radius: 3em;
+        color: #fff;
+        margin-left: 95%;
+        font-size: 1.25em;
+        padding: .4em .7em;
+        cursor: pointer;
+    }
+
+    /* KALENDER */
+    .icons-flex-container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.29);
+    }
+
+    #calendar {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        width: 420px;
+        margin: 0 auto;
+        height: 570px;
+        overflow: hidden;
+    }
+    /* Måned */
+    .header {
+        height: 50px;
+        width: 420px;
+        background: rgba(164, 164, 164, 1);
+        text-align: center;
+        position: relative;
+        z-index: 100;
+    }
+
+    .header h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        line-height: 50px;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+    /* Pilene i header */
+    .left,
+    .right {
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        top: 50%;
+        margin-top: -7.5px;
+        cursor: pointer;
+    }
+
+    .left {
+        border-width: 7.5px 10px 7.5px 0;
+        border-color: transparent rgba(0, 0, 0, 0.50) transparent transparent;
+        left: 20px;
+    }
+
+    .right {
+        border-width: 7.5px 0 7.5px 10px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.50);
+        right: 20px;
+    }
+    /* Alle månederne - frem og tilbage funktion */
+    .month {
+        /*overflow: hidden;*/
+        opacity: 0;
+    }
+
+    .month.new {
+        -webkit-animation: fadeIn 1s ease-out;
+        opacity: 1;
+    }
+
+    .month.in.next {
+        -webkit-animation: moveFromTopFadeMonth .4s ease-out;
+        -moz-animation: moveFromTopFadeMonth .4s ease-out;
+        animation: moveFromTopFadeMonth .4s ease-out;
+        opacity: 1;
+    }
+
+    .month.out.next {
+        -webkit-animation: moveToTopFadeMonth .4s ease-in;
+        -moz-animation: moveToTopFadeMonth .4s ease-in;
+        animation: moveToTopFadeMonth .4s ease-in;
+        opacity: 1;
+    }
+
+    .month.in.prev {
+        -webkit-animation: moveFromBottomFadeMonth .4s ease-out;
+        -moz-animation: moveFromBottomFadeMonth .4s ease-out;
+        animation: moveFromBottomFadeMonth .4s ease-out;
+        opacity: 1;
+    }
+
+    .month.out.prev {
+        -webkit-animation: moveToBottomFadeMonth .4s ease-in;
+        -moz-animation: moveToBottomFadeMonth .4s ease-in;
+        animation: moveToBottomFadeMonth .4s ease-in;
+        opacity: 1;
+    }
+    /* Frem og tilbage funktion slut */
+    .week {
+        background: white;
+    }
+
+    .day {
+        display: inline-block;
+        width: 60px;
+        padding: 10px;
+        text-align: center;
+        vertical-align: top;
+        cursor: pointer;
+        background: white;
+        position: relative;
+        z-index: 100;
+    }
+    /* Dage der ikke er med i denne mdr.*/
+    .day.other {
+        color: black;
+    }
+    /* Nuværende dag*/
+    .day.today {
+        color: rgba(156, 202, 235, 1);
+    }
+    /* Man- fre navne*/
+    .day-name {
+        font-size: 9px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: black;
+        letter-spacing: .7px;
+    }
+    /* dage nummer */
+    .day-number {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+        color: black;
+    }
+
+    /* Styling af det der sker på dagene*/
+    .day .day-events {
+        list-style: none;
+        margin-top: 3px;
+        text-align: center;
+        height: 12px;
+        line-height: 6px;
+        overflow: hidden;
+    }
+    /* Styrer prikkernes størrelse*/
+    .day .day-events span {
+        vertical-align: top;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: 5px;
+        height: 5px;
+        line-height: 5px;
+        margin: 0 1px;
+    }
+    /* prikkernes farver */
+    .blue {
+        background: rgba(156, 202, 235, 1);
+    }
+    .orange {
+        background: rgba(247, 167, 0, 1);
+    }
+    .red {
+        background: rgba(237, 18, 40, 1);
+    }
+    .green {
+        background: rgba(119, 156, 42, 1);
+    }
+    /* Boks til tekst, når der sker noget */
+    .details {
+        position: relative;
+        width: 420px;
+        height: 75px;
+        background: rgba(164, 164, 164, 1);
+        margin-top: 5px;
+        border-radius: 4px;
+    }
+
+    .details.in {
+        -webkit-animation: moveFromTopFade .5s ease both;
+        -moz-animation: moveFromTopFade .5s ease both;
+        animation: moveFromTopFade .5s ease both;
+    }
+
+    .details.out {
+        -webkit-animation: moveToTopFade .5s ease both;
+        -moz-animation: moveToTopFade .5s ease both;
+        animation: moveToTopFade .5s ease both;
+    }
+    /* pilen til boksen */
+    .arrow {
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        margin-left: -2px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+        transition: all 0.7s ease;
+    }
+    /* tekst inde i boksen */
+    .events {
+        height: 75px;
+        padding: 7px 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .events.in {
+        -webkit-animation: fadeIn .3s ease both;
+        -moz-animation: fadeIn .3s ease both;
+        animation: fadeIn .3s ease both;
+    }
+
+    .events.in {
+        -webkit-animation-delay: .3s;
+        -moz-animation-delay: .3s;
+        animation-delay: .3s;
+    }
+
+    .details.out .events {
+        -webkit-animation: fadeOutShrink .4s ease both;
+        -moz-animation: fadeOutShink .4s ease both;
+        animation: fadeOutShink .4s ease both;
+    }
+
+    .events.out {
+        -webkit-animation: fadeOut .3s ease both;
+        -moz-animation: fadeOut .3s ease both;
+        animation: fadeOut .3s ease both;
+    }
+    /* Styling af tekst i boksen */
+    .event {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: .5px;
+        padding: 2px 16px;
+        vertical-align: top;
+    }
+
+    .event.empty {
+        color: #eee;
+    }
+
+    .event-category {
+        height: 10px;
+        width: 10px;
+        display: inline-block;
+        margin: 6px 0 0;
+        vertical-align: top;
+    }
+
+    .event span {
+        display: inline-block;
+        padding: 0 0 0 7px;
+    }
+    /* boksen til kategorierne */
+    .legend {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background: white;
+        line-height: 30px;
+
+    }
+
+    .entry {
+        position: relative;
+        padding: 0 0 0 25px;
+        font-size: 13px;
+        display: inline-block;
+        line-height: 30px;
+        background: transparent;
+        color: black;
+    }
+
+    .entry:after {
+        position: absolute;
+        content: '';
+        height: 5px;
+        width: 5px;
+        top: 12px;
+        left: 14px;
+    }
+
+    .entry.blue:after {
+        background: rgba(156, 202, 235, 1);
+    }
+    .entry.orange:after {
+        background: rgba(247, 167, 0, 1);
+    }
+    .entry.red:after {
+        background: rgba(237, 18, 40, 1);
+    }
+    .entry.green:after {
+        background: rgba(119, 156, 42, 1);
+    }
+
+    /* Animations are cool!  */
+    @-webkit-keyframes moveFromTopFade {
+        from {
+            opacity: .3;
+            height: 0px;
+            margin-top: 0px;
+            -webkit-transform: translateY(-100%);
+        }
+    }
+    @-moz-keyframes moveFromTopFade {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            -moz-transform: translateY(-100%);
+        }
+    }
+    @keyframes moveFromTopFade {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            transform: translateY(-100%);
+        }
+    }
+
+    @-webkit-keyframes moveToTopFade {
+        to {
+            opacity: .3;
+            height: 0px;
+            margin-top: 0px;
+            opacity: 0.3;
+            -webkit-transform: translateY(-100%);
+        }
+    }
+    @-moz-keyframes moveToTopFade {
+        to {
+            height: 0px;
+            -moz-transform: translateY(-100%);
+        }
+    }
+    @keyframes moveToTopFade {
+        to {
+            height: 0px;
+            transform: translateY(-100%);
+        }
+    }
+
+    @-webkit-keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(-30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -moz-transform: translateY(-30%);
+        }
+    }
+    @keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -moz-transform: translateY(-30%);
+        }
+    }
+
+    @-webkit-keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -moz-transform: translateY(30%);
+        }
+    }
+    @keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -moz-transform: translateY(30%);
+        }
+    }
+
+    @-webkit-keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        }
+    }
+    @keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        }
+    }
+
+    @-webkit-keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%);
+        }
+    }
+    @keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%);
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+    @-moz-keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+    @keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+
+    /* KALENDER SLUT */
+    /************************************ PRAKTISK SIDE SLUT ************************************/
+    /************************************ FOOTER ************************************/
+    .ac {
+        display: block!important;
+        float: right;
+    }
+
+    footer {
+        margin-top: 10%;
+    }
+
+    .somelink {
+        text-decoration: none;
+        color: white;
+    }
+
+    .somelink:hover {
+        color: grey;
+    }
+
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+
+    }
+
+    .flex-container > * {
+        flex: 1 100%;
+
+    }
+
+    .footer-item {
+        border-top: 1px solid rgb(92, 181, 223);
+        border-right: 1px solid rgb(92, 181, 223);
+        border-left: 1px solid rgb(92, 181, 223);
+        padding-bottom: 1.4%;
+        padding-top: 1%;
+        background-color: rgba(92, 181, 222, 0.08);
+
+    }
+
+    .info,
+    .info1 {
+        margin-left: 4%;
+        margin-right: 2%;
+    }
+
+    .info {
+        text-decoration: none;
+    }
+
+    #footer h1 {
+        margin-top: 3%;
+
+    }
+    .kontaktinfo,
+    .abningstider {
+        text-align: center;
+    }
+
+    .footer-item i {
+        font-size: 1.4em;
+        text-align: inherit;
+        color: #559f06;
+    }
+
+    .some {
+        font-size: 2.4em;
+        text-align: center;
+        color: white;
+        background-color: #5cb5df;
+        padding: 0.4%;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+
+    }
+
+    #map {
+        height: 180px;
+        width: 84%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 14%;
+
+    }
+
+    .ugedage {
+        line-height: 28px;
+        text-align: center;
+    }
+
+    table {
+        margin: 0 20% 0 20%;
+    }
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th,
+    td {
+        padding: 15px;
+    }
+    .farve {
+        background-color: rgba(121, 156, 42, 0.4);
+    }
+    .blaa {
+        background-color: rgba(92, 181, 223, 0.1);
+    }
+    /************************************ FOOTER SLUT ************************************/
+}
+
+
+/* DESKTOP */
+
+@media (min-width: 1024px) {
+
+    #burgermenu {
+        display: none;
+    }
+
+    /* LOGO */
+    .logo {
+        /*position: fixed;*/
+        position: absolute;
+        z-index: 2;
+        padding: 1%;
+        /*margin-left: 4%;
+    margin-top: 0.2%;*/
+        background-color: transparent;
+
+    }
+
+    /* LOGO SLUT */
+    /* MENU */
+    header nav {
+        /*position: fixed;*/
+        position: absolute;
+        width: 100%;
+        top: 40px;
+
+    }
+
+    .indmeldelse {
+        background-color: #559f01;
+        color: white;
+        padding: 9px 20px;
+        line-height: 14px;
+        border-bottom: 0;
+    }
+
+    .ac {
+        float: right;
+    }
+
+
+    .nav {
+        overflow: hidden;
+        /*z-index: 50;*/
+    }
+
+    .nav ul {
+        text-transform: uppercase;
+        padding: 0;
+        margin: 0;
+    }
+
+    .sol-menu li {
+        float: left;
+        display: block;
+        list-style: none;
+        padding: 15px 50px;
+    }
+
+    .active {
+        border-bottom: 1px solid black;
+    }
+
+    .sol-menu li a {
+        /*display: block;*/
+        text-decoration: none;
+        color: #000000;
+
+        -webkit-transition: all 0.3s ease;
+        -moz-transition: all 0.3s ease;
+        -o-transition: all 0.3s ease;
+        -ms-transition: all 0.3s ease;
+        transition: all 0.3s ease;
+    }
+
+    .sol-menu a:hover {
+        border-bottom: 1px solid black;
+    }
+
+    ul.sag-menu {
+        float: right;
+        padding: 8px 10px;
+        overflow: hidden;
+    }
+
+    .sag-menu i {
+        color: #FFFFFF;
+        margin: 8px;
+        cursor: pointer;
+    }
+
+    input.search {
+        display: none;
+        padding: 5px;
+        max-width: 100%;
+    }
+
+    .altmenu-ac {
+        display: none;
+    }
+
+    .menu-ac {
+        display: none;
+        padding: 10px;
+        cursor: pointer;
+        color: #FFFFFF;
+    }
+
+    nav.scrolling {
+        transition: background-color 0.9s ease;
+        top: 40px;
+    }
+
+
+    /* MENU SLUT*/
+    /************************************ FORSIDE ************************************/
+    #home {
+        height: 100vh;
+        background-image: url(../images/forside2.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .pagetext {
+        position: absolute;
+        z-index: 1;
+        margin-top: 17%;
+        padding: 5%;
+        line-height: 1.5;
+        width: 43%;
+        background-color: rgba(0, 0, 0, 0.35);
+        color: white;
+    }
+
+    .pagetext h4 {
+        font-size: 1.2em;
+    }
+
+    .forside-pil {
+        width: 5%;
+        height: 67px;
+        margin: 0 auto;
+        display: block;
+        margin-top: -7%;
+        margin-bottom: 10%;
+    }
+
+    .forside-pil:hover {
+        color: rgb(224, 217, 209);
+        opacity: 0.70;
+    }
+
+    /************************************ FORSIDE SLUT ************************************/
+    /* GALLERY */
+    #galleri {
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: -3%;
+    }
+.popup{
+    width: 900px;
+    margin: auto;
+    text-align: center
+}
+.popup img{
+    width: 200px;
+    height: 200px;
+    cursor: pointer
+}
+.show{
+    z-index: 999;
+    display: none;
+}
+.show .overlay{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.66);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.show .img-show{
+    width: 600px;
+    height: 400px;
+    background: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow: hidden
+}
+.img-show span{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+}
+.img-show img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+/*End style*/
+
+
+    /* SLIDESHOW*/
+    .slider {
+        width: 80%;
+        margin: 100px auto;
+    }
+
+    .slick-slide {
+        margin: 0px 20px;
+    }
+
+    .slick-slide img {
+        width: 100%;
+    }
+
+    .slick-prev:before,
+    .slick-next:before {
+        color: black;
+    }
+
+
+
+    /* Slider */
+    .slick-slider {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10%;
+    }
+
+    .slick-list:focus {
+        outline: none;
+    }
+
+    .slick-list.dragging {
+        cursor: pointer;
+        cursor: hand;
+    }
+
+    .slick-slider .slick-track,
+    .slick-slider .slick-list {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        -ms-transform: translate3d(0, 0, 0);
+        -o-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .slick-track:before,
+    .slick-track:after {
+        display: table;
+        content: '';
+    }
+
+    .slick-track:after {
+        clear: both;
+    }
+
+    .slick-loading .slick-track {
+        visibility: hidden;
+    }
+
+    .slick-slide {
+        display: none;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+    }
+
+    [dir='rtl'] .slick-slide {
+        float: right;
+    }
+
+    .slick-slide img {
+        display: block;
+    }
+
+    .slick-slide.slick-loading img {
+        display: none;
+    }
+
+    .slick-slide.dragging img {
+        pointer-events: none;
+    }
+
+    .slick-initialized .slick-slide {
+        display: block;
+    }
+
+    .slick-loading .slick-slide {
+        visibility: hidden;
+    }
+
+    .slick-vertical .slick-slide {
+        display: block;
+        height: auto;
+        border: 1px solid transparent;
+    }
+
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
+
+
+    /* ANMELDELSER */
+    .anmeldelser {
+        text-align: center;
+        margin-top: 8%;
+        margin-bottom: -5%;
+        font-size: 1.5em;
+    }
+
+
+    /************************************ OM OS ************************************/
+    #om-os {
+        height: 100vh;
+        background-image: url(../images/om.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    /* PERSONALE */
+    #opersonale {
+        font-size: 1.5em;
+        text-align: center;
+        margin-top: 4%;
+        margin-bottom: -5%;
+    }
+
+    .personale {
+        border-radius: 50%;
+    }
+
+    .ptekst {
+        text-align: center;
+        margin-top: 5%;
+        font-size: 18px;
+    }
+
+    .ptekst1 {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 1%
+    }
+
+    #vision {
+        position: absolute;
+        z-index: 1;
+        margin-top: 17%;
+        padding: 5%;
+        line-height: 1.5;
+        width: 43%;
+        background-color: rgba(0, 0, 0, 0.27);
+        color: white;
+        font-style: italic;
+    }
+
+    /* IKONER SECTION */
+    #table {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 10%;
+    }
+
+    #table {
+        flex: 1 100%;
+    }
+
+    .narvar {
+        padding-bottom: 1.4%;
+        padding-top: 1%;
+        width: 33.3%;
+    }
+
+    .narvar img {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 4%;
+    }
+
+    .narvartekst {
+        width: 60%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 4%;
+        line-height: 1.5;
+        margin-bottom: 15%;
+    }
+
+
+    /************************************ PRAKTISK SIDE ************************************/
+    #praktisk-billede {
+        height: 100vh;
+        background-image: url(../images/praktisk.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #calendar {
+        -webkit-transform: translate3d(0, 0, 0);
+        -moz-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        width: 420px;
+        margin: 0 auto;
+        height: 570px;
+        overflow: hidden;
+        margin-left: 23%;
+    }
+    /* Måned */
+    .header {
+        height: 50px;
+        width: 420px;
+        background: rgba(164, 164, 164, 1);
+        text-align: center;
+        position: relative;
+        z-index: 100;
+    }
+
+    .header h1 {
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        line-height: 50px;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+    /* Pilene i header */
+    .left,
+    .right {
+        position: absolute;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        top: 50%;
+        margin-top: -7.5px;
+        cursor: pointer;
+    }
+
+    .left {
+        border-width: 7.5px 10px 7.5px 0;
+        border-color: transparent rgba(0, 0, 0, 0.50) transparent transparent;
+        left: 20px;
+    }
+
+    .right {
+        border-width: 7.5px 0 7.5px 10px;
+        border-color: transparent transparent transparent rgba(0, 0, 0, 0.50);
+        right: 20px;
+    }
+    /* Alle månederne - frem og tilbage funktion */
+    .month {
+        /*overflow: hidden;*/
+        opacity: 0;
+    }
+
+    .month.new {
+        -webkit-animation: fadeIn 1s ease-out;
+        opacity: 1;
+    }
+
+    .month.in.next {
+        -webkit-animation: moveFromTopFadeMonth .4s ease-out;
+        -moz-animation: moveFromTopFadeMonth .4s ease-out;
+        animation: moveFromTopFadeMonth .4s ease-out;
+        opacity: 1;
+    }
+
+    .month.out.next {
+        -webkit-animation: moveToTopFadeMonth .4s ease-in;
+        -moz-animation: moveToTopFadeMonth .4s ease-in;
+        animation: moveToTopFadeMonth .4s ease-in;
+        opacity: 1;
+    }
+
+    .month.in.prev {
+        -webkit-animation: moveFromBottomFadeMonth .4s ease-out;
+        -moz-animation: moveFromBottomFadeMonth .4s ease-out;
+        animation: moveFromBottomFadeMonth .4s ease-out;
+        opacity: 1;
+    }
+
+    .month.out.prev {
+        -webkit-animation: moveToBottomFadeMonth .4s ease-in;
+        -moz-animation: moveToBottomFadeMonth .4s ease-in;
+        animation: moveToBottomFadeMonth .4s ease-in;
+        opacity: 1;
+    }
+    /* Frem og tilbage funktion slut */
+    .week {
+        background: white;
+    }
+
+    .day {
+        display: inline-block;
+        width: 60px;
+        padding: 10px;
+        text-align: center;
+        vertical-align: top;
+        cursor: pointer;
+        background: white;
+        position: relative;
+        z-index: 100;
+    }
+    /* Dage der ikke er med i denne mdr.*/
+    .day.other {
+        color: black;
+    }
+    /* Nuværende dag*/
+    .day.today {
+        color: rgba(156, 202, 235, 1);
+    }
+    /* Man- fre navne*/
+    .day-name {
+        font-size: 9px;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        color: black;
+        letter-spacing: .7px;
+    }
+    /* dage nummer */
+    .day-number {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+        color: black;
+    }
+
+    /* Styling af det der sker på dagene*/
+    .day .day-events {
+        list-style: none;
+        margin-top: 3px;
+        text-align: center;
+        height: 12px;
+        line-height: 6px;
+        overflow: hidden;
+    }
+    /* Styrer prikkernes størrelse*/
+    .day .day-events span {
+        vertical-align: top;
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+        width: 5px;
+        height: 5px;
+        line-height: 5px;
+        margin: 0 1px;
+    }
+    /* prikkernes farver */
+    .blue {
+        background: rgba(156, 202, 235, 1);
+    }
+    .orange {
+        background: rgba(247, 167, 0, 1);
+    }
+    .red {
+        background: rgba(237, 18, 40, 1);
+    }
+    .green {
+        background: rgba(119, 156, 42, 1);
+    }
+    /* Boks til tekst, når der sker noget */
+    .details {
+        position: relative;
+        width: 420px;
+        height: 75px;
+        background: rgba(164, 164, 164, 1);
+        margin-top: 5px;
+        border-radius: 4px;
+    }
+
+    .details.in {
+        -webkit-animation: moveFromTopFade .5s ease both;
+        -moz-animation: moveFromTopFade .5s ease both;
+        animation: moveFromTopFade .5s ease both;
+    }
+
+    .details.out {
+        -webkit-animation: moveToTopFade .5s ease both;
+        -moz-animation: moveToTopFade .5s ease both;
+        animation: moveToTopFade .5s ease both;
+    }
+    /* pilen til boksen */
+    .arrow {
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        margin-left: -2px;
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 0 5px 5px 5px;
+        border-color: transparent transparent rgba(164, 164, 164, 1) transparent;
+        transition: all 0.7s ease;
+    }
+    /* tekst inde i boksen */
+    .events {
+        height: 75px;
+        padding: 7px 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .events.in {
+        -webkit-animation: fadeIn .3s ease both;
+        -moz-animation: fadeIn .3s ease both;
+        animation: fadeIn .3s ease both;
+    }
+
+    .events.in {
+        -webkit-animation-delay: .3s;
+        -moz-animation-delay: .3s;
+        animation-delay: .3s;
+    }
+
+    .details.out .events {
+        -webkit-animation: fadeOutShrink .4s ease both;
+        -moz-animation: fadeOutShink .4s ease both;
+        animation: fadeOutShink .4s ease both;
+    }
+
+    .events.out {
+        -webkit-animation: fadeOut .3s ease both;
+        -moz-animation: fadeOut .3s ease both;
+        animation: fadeOut .3s ease both;
+    }
+    /* Styling af tekst i boksen */
+    .event {
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: .5px;
+        padding: 2px 16px;
+        vertical-align: top;
+    }
+
+    .event.empty {
+        color: #eee;
+    }
+
+    .event-category {
+        height: 10px;
+        width: 10px;
+        display: inline-block;
+        margin: 6px 0 0;
+        vertical-align: top;
+    }
+
+    .event span {
+        display: inline-block;
+        padding: 0 0 0 7px;
+    }
+    /* boksen til kategorierne */
+    .legend {
+        position: relative;
+        /*bottom: 0;*/
+        height: 30px;
+        background: white;
+        line-height: 30px;
+        text-align: center;
+
+    }
+
+    .entry {
+        position: relative;
+        padding: 0 0 0 25px;
+        /* font-size: 13px;*/
+        display: inline-block;
+        line-height: 30px;
+        background: transparent;
+        color: black;
+    }
+
+    .entry:after {
+        position: absolute;
+        content: '';
+        height: 5px;
+        width: 5px;
+        top: 12px;
+        left: 14px;
+    }
+
+    .entry.blue:after {
+        background: rgba(156, 202, 235, 1);
+    }
+    .entry.orange:after {
+        background: rgba(247, 167, 0, 1);
+    }
+    .entry.red:after {
+        background: rgba(237, 18, 40, 1);
+    }
+    .entry.green:after {
+        background: rgba(119, 156, 42, 1);
+    }
+
+    /* Animations are cool!  */
+    @-webkit-keyframes moveFromTopFade {
+        from {
+            opacity: .3;
+            height: 0px;
+            margin-top: 0px;
+            -webkit-transform: translateY(-100%);
+        }
+    }
+    @-moz-keyframes moveFromTopFade {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            -moz-transform: translateY(-100%);
+        }
+    }
+    @keyframes moveFromTopFade {
+        from {
+            height: 0px;
+            margin-top: 0px;
+            transform: translateY(-100%);
+        }
+    }
+
+    @-webkit-keyframes moveToTopFade {
+        to {
+            opacity: .3;
+            height: 0px;
+            margin-top: 0px;
+            opacity: 0.3;
+            -webkit-transform: translateY(-100%);
+        }
+    }
+    @-moz-keyframes moveToTopFade {
+        to {
+            height: 0px;
+            -moz-transform: translateY(-100%);
+        }
+    }
+    @keyframes moveToTopFade {
+        to {
+            height: 0px;
+            transform: translateY(-100%);
+        }
+    }
+
+    @-webkit-keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(-30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -moz-transform: translateY(-30%);
+        }
+    }
+    @keyframes moveToTopFadeMonth {
+        to {
+            opacity: 0;
+            -moz-transform: translateY(-30%);
+        }
+    }
+
+    @-webkit-keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -moz-transform: translateY(30%);
+        }
+    }
+    @keyframes moveFromTopFadeMonth {
+        from {
+            opacity: 0;
+            -moz-transform: translateY(30%);
+        }
+    }
+
+    @-webkit-keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        }
+    }
+    @keyframes moveToBottomFadeMonth {
+        to {
+            opacity: 0;
+            -webkit-transform: translateY(30%);
+        }
+    }
+
+    @-webkit-keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%) scale(.95);
+        }
+    }
+    @-moz-keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%);
+        }
+    }
+    @keyframes moveFromBottomFadeMonth {
+        from {
+            opacity: 0;
+            -webkit-transform: translateY(-30%);
+        }
+    }
+
+    @-webkit-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+    @-moz-keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+    @keyframes fadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+
+    @-webkit-keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+    @-moz-keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+    @keyframes fadeOutShink {
+        to {
+            opacity: 0;
+            padding: 0px;
+            height: 0px;
+        }
+    }
+
+    /************************************ KALENDER SLUT ************************************/
+    /************************************ INDMELDELSE SIDE ************************************/
+    #indmeldelse-billede {
+        height: 100vh;
+        background-image: url(../images/baggrund-indmeldelse.jpg);
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .regular1 {
+        display: none;
+    }
+    .lazy1 {
+        display: none;
+    }
+
+
+    /* FOOTER */
+    .somelink {
+        text-decoration: none;
+        color: white;
+    }
+
+    .somelink:hover {
+        color: grey;
+    }
+
+    .flex-container {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+    }
+
+    .flex-container > * {
+        flex: 1 100%;
+    }
+
+    .footer-item {
+        border-top: 1px solid rgb(92, 181, 223);
+        border-right: 1px solid rgb(92, 181, 223);
+        border-left: 1px solid rgb(92, 181, 223);
+        padding-bottom: 1.4%;
+        padding-top: 1%;
+        background-color: rgba(92, 181, 222, 0.08);
+    }
+
+    .info,
+    .info1 {
+        margin-left: 16%;
+        margin-right: 16%;
+    }
+
+    .info {
+        text-decoration: none;
+    }
+
+    .kontaktinfo,
+    .abningstider {
+        text-align: center;
+    }
+
+    .footer-item i {
+        font-size: 1.4em;
+        text-align: inherit;
+        color: #559f06;
+    }
+
+    .some {
+        font-size: 2.4em;
+        text-align: center;
+        color: white;
+        background-color: #5cb5df;
+        padding: 0.4%;
+        border-left: 1px solid black;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+    }
+
+    #map {
+        height: 200px;
+        width: 61%;
+        display: block;
+        margin: 0 auto;
+        margin-top: 4.3%;
+    }
+
+    .ugedage {
+        line-height: 28px;
+        text-align: center;
+    }
+
+    /************************************ FOOTER SLUT ************************************/
+    /************************************* PRAKTISK SIDE *************************************/
+    table {
+        margin: 0 auto;
+
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th,
+    td {
+        padding: 15px;
+    }
+    .farve {
+        background-color: rgba(121, 156, 42, 0.4);
+    }
+    .blaa {
+        background-color: rgba(92, 181, 223, 0.1);
+    }
+    #praktisk-tabel {
+        display: -webkit-flex;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-around;
+        margin: 0 auto;
+        margin: 10% 3% 0 3%;
+
+    }
+
+    #praktisk-tabel {
+        flex: 1 100%;
+    }
+
+    .praktisk-tre {
+        padding-bottom: 1.4%;
+        padding: 10%;
+        width: 33.3%;
+        border: 1px solid #799c2a;
+        margin-bottom: 10%;
+    }
+    /* BUTTON */
+    form {
+        text-align: center;
+    }
+    input[type=button] {
+        width: 60%;
+        padding: 6px;
+        text-transform: uppercase;
+        background-color: #799c2a;
+        color: white;
+        border: none;
+        margin-top: 4%;
+        font-size: 0.77em;
+    }
+    .kontaktinfo1 {
+        text-align: center;
+        margin-top: -17%;
+    }
+
+    /*Pop up effekt er fra: https://codepen.io/DominicFrancois/pen/vlJbf*/
+    .pop-up-button {
+
+        cursor: pointer;
+    }
+
+    .pop-up {
+        width: 50%;
+        background: #fff;
+        z-index: 1;
+        border-radius: 1px;
+        margin: 0 auto;
+    }
+
+    .pop-up-container {
+        height: 30%;
+        width: 100%;
+        opacity: .5;
+        position: relative;
+        z-index: -1;
+    }
+
+    #top,
+    #logo {
+        margin-top: 20px;
+    }
+
+    .kryds {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        background: #cc3131;
+        border-radius: 3em;
+        color: #fff;
+        margin-left: 95%;
+        font-size: 1.25em;
+        padding: .4em .7em;
+        cursor: pointer;
+    }
+
+
+    .icons-flex-container {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.29);
+    }
+
+
+    #mad h1 {
+        font-size: 20px;
+        margin: 1% 5% 0% 5%;
+        padding-top: 3%;
+    }
+
+    #mad p {
+        line-height: 1.5;
+        margin: 1% 5% 1% 5%;
+    }
+
+    .kids {
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        margin-top: 4%;
+        padding: 4%
+    }
+
+    /************************************ PRAKTISK SIDE SLUT ************************************/
+    /************************************ INDMELDELSE SIDE ************************************/
+    /*BOKS MAN KAN SKRIVE I*/
+    input[type=text],
+    textarea {
+        width: 30%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin: 1% 35% 1% 35%;
+        resize: vertical;
+
+    }
+    #comment {
+        height: 150px;
+    }
+    /*INDMELDER KNAP */
+    input[type=submit] {
+        background-color: #559f01;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 1% 35% 6% 35%;
+        width: 30%;
+        font-size: 1.3em;
+        font-family: voresfont;
+        text-transform: uppercase;
+    }
+
+    input[type=submit]:hover {
+        background-color: rgba(85, 159, 1, 0.61);
+    }
+    /* STYLING AF TEKST*/
+    .contacttext {
+        text-align: left;
+        margin: 0 35% -0.8% 35%;
+    }
+    #registration {
+        text-align: center;
+        font-size: 1.5em;
+        margin-bottom: 3%;
+    }
+
+    #indmeldelsetekst {
+        width: 30%;
+        display: block;
+        margin: 0 auto;
+        line-height: 1.5;
+        margin-bottom: 3%;
+    }
+
+    .overskrift-indhold {
+        text-align: center;
+        margin-bottom: 2%;
+
+    }
+    /************************************ INDMELDELSE SIDE SLUT ************************************/
+}
+
+/************************************ NY INDEX SIDE ************************************/
+
+/* Split the screen in half */
+
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+
+.left {
+    left: 0;
+    background-image: url(../images/11.jpg);
+    background-position: left;
+}
+
+/* Control the right side */
+
+.right {
+    right: 0;
+    background-image: url(../images/22.jpg);
+    background-position: left;
+}
+
+/* If you want the content centered horizontally and vertically */
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* Style the image inside the centered container, if needed */
+
+.centered img {
+    width: 400px;
+}
+
+.vugge,
+.borne {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    /* For IE8 and earlier */
+}
+
+.vugge:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    /* For IE8 and earlier */
+}
+
+.borne:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+    /* For IE8 and earlier */
+}
+
+.borne,
+.vugge h1 {
+    color: black;
+}

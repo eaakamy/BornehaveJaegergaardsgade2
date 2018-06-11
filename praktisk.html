@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vær med til at se hvordan en helt almindelig hverdag ser ud, og hvilke madordninger som Børnehuset Jægergårdsgade har. Derudover er det også muligt, at følge med i hvilke praktiske ting, der sker i børnehaven via vores online kalender.">
+    <meta name="keywords" content="Børnehuset, Jægergårdsgade, børnehave, naturbørnehave, skovbørnehave, midtby-institution, Aarhus, Århus, Frederiksbjerg, åbningstider, kontakt, praktisk, information, aktiviteter, hverdag, madordning, kalender">
+
+    <title>Praktisk - Børnehuset Jægergårdsgade</title>
+
+    <!-- FANE IKON -->
+    <link rel="icon" href="images/icon.png" type="image/png">
+
+    <!-- MAIN STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <!-- SLIDESHOW STYLESHEETS -->
+    <link rel="stylesheet" type="text/css" href="./slick/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="slick/slick.min.js">
+
+    <!-- JQUERY LIBRARY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <!-- KALENDER SCRIPT -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.5.1/moment.min.js"></script>
+    
+    <!-- SLIDESHOW SCRIPTS -->
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+    <script src="./slick/slick.min.js" type="text/javascript" charset="utf-8"></script>
+
+    <!-- FONT AWESOME STYLESHEET ER TAGET FRA: https://fontawesome.com/icons?d=gallery -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- MAPBOX STYLESHEET -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <!-- LOGO -->
+        <div class="logo">
+            <a href="index.html"><img src="images/logo2.png" alt="Billede af Børnehuset Jægergårdsgades logo"></a>
+        </div>
+        <!-- LOGO SLUT -->
+        <!-- MENU -->
+        <nav class="nav">
+            <div class="ac">
+                <ul class="sol-menu">
+                    <li><a href="om-os.html">Om os</a></li>
+                    <li><a href="praktisk.html" class="active">Praktisk</a></li>
+                    <li><a href="#footer">Kontakt</a></li>
+                    <li><a href="#footer">Åbningstider</a></li>
+                    <li><a href="indmeldelse.html" class="indmeldelse" style="color: white;">Indmeldelse</a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <!-- BURGERMENU STARTER HER. FUNDET PÅ https://codepen.io/erikterwan/pen/EVzeRP -->
+        <section id="burgermenu">
+            <input type="checkbox" />
+            <!-- DE TRE STREGER -->
+            <span class="burgerspan"></span>
+            <span class="burgerspan"></span>
+            <span class="burgerspan"></span>
+
+            <ul id="burgerpunkter">
+                <li><a class="lipunkter" href="om-os.html">Om os</a></li>
+                <li><a class="lipunkter" href="praktisk.html">Praktisk</a></li>
+                <li><a class="lipunkter" href="#footer">Kontakt</a></li>
+                <li><a class="lipunkter" href="#footer">Åbningstider</a></li>
+                <li id="farve-indmeldelse"><a class="lipunkter" href="indmeldelse.html">Indmeldelse</a></li>
+            </ul>
+
+        </section>
+        <!-- BURGER MENU SLUT -->
+
+
+
+        <!-- MENU SLUT -->
+    </header>
+    <!-- HEADER SLUT -->
+    <!-- VELKOMST TEKST -->
+    <section id="praktisk-billede">
+        <div class="pagetext">
+            <h1>Her kan du finde information om kalender, hverdagen i Børnehuset samt madordning. </h1><br>
+        </div>
+    </section>
+    <!-- VELKOMST TEKST SLUT -->
+    <!-- PIL NED -->
+    <a href="#praktisk-tabel"><img class="forside-pil" src="images/downok-white.gif" alt="pil der hopper ned når man trykker på den"> </a>
+    <!-- PIL NED SLUT -->
+
+    <!-- POP-UP KALENDER ER TAGET FRA: https://codepen.io/peanav/pen/ulkof -->
+    <article id="kalender">
+        <div class="pop-up">
+            <span class="kryds">x</span>
+            <section class="icons-flex-container">
+                <div id="calendar"></div>
+
+            </section>
+        </div>
+    </article>
+    <!-- POP-UP KALENDER SLUT-->
+    <!-- POP-UP HVERDAG I BØRNEHAVEN TABEL -->
+    <div id="hverdag">
+        <div class="pop-up">
+            <span class="kryds">x</span>
+            <div class="icons-flex-container">
+
+                <table>
+                    <tr>
+                        <th class="farve">Tidspunkt</th>
+                        <th class="blaa">Aktivitet</th>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">06:30</td>
+                        <td class="blaa">En pædagog åbner børnehuset. Vi serverer morgenmad hver dag indtil klokken 07.30. <br>Vi hygger os og tager imod børnene. Børnehaven og vuggestuen er sammen indtil klokken 08.30.<br>I kan ikke regne med, at der er mødt en medarbejder ind fra jeres barns stue før klokken 08.30.</td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">07:30</td>
+                        <td class="blaa">To medarbejdere møder ind og der ryddes op efter morgenmaden, fyldes op på hylderne og hygges med børnene.</td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">08:30</td>
+                        <td class="blaa">Børnehaven gør sig klar til at tage med bussen til Peter Sabroes Minde. De går på legepladsen, når de er i tøjet. <br>Børnehavepersonalet tjekker legepladsen for eventuelt farligt affald.</td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">09:00-9:30</td>
+                        <td class="blaa">Børnehavegruppen er i skoven ved Peter Sabroes Minde fire dage om ugen, mandag til torsdag.<br> Fredag er de hjemme i huset på Jægergårdsgade. </td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">11:00</td>
+                        <td class="blaa">Børnehavebørnene vasker hænder, og gør klar til at spise frokost, hvis de er ved huset i Hørhaven, <br>ellers spiser de bare deres medbragte mad i Guds frie natur!</td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">12:00-13:00</td>
+                        <td class="blaa">Børnehavens personale afvikler pause på skift.</td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">14:15</td>
+                        <td class="blaa">Børnehaven pakker sammen, og gør sig klar til at tage hjem med bussen.</td>
+
+                    </tr>
+                    <tr>
+                        <td class="farve">15:00</td>
+                        <td class="blaa">Børnehavegruppen kommer hjem. Flere af børnene bliver hentet ved bussen, og resten går op i huset og leger,<br> til de bliver hentet. Personalet hygger med børnene, og snakker med forældrene om deres barns dag.</td>
+
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- POP-UP HVERDAG I BØRNEHAVEN TABEL SLUT -->
+    <!-- POP-UP MAD PLANEN -->
+    <section id="mad">
+        <div class="pop-up">
+            <span class="kryds">x</span>
+            <div class="icons-flex-container">
+                <h1>Morgenmad</h1>
+                <p>Børnehuset Jægergårdsgade tilbyder morgenmad til de børn, der bliver afleveret før kl. 07.30. Morgenmaden der bliver serveret, er havregryn, cornflakes (uden sukker) og boller med pålæg.</p>
+                <br>
+                <h1>Frokost</h1>
+                <p>Børnene i Børnehuset Jægergårdsgade medbringer alle hverdage deres egne madpakker. Dog vil der nogle onsdage blive serveret bålmad, hvor forældrene skiftevist handler ind til råvarerne. Forældrene vil få besked, når det er deres tur til at handle ind til bålmad. </p>
+                <br>
+                <h1>Eftermiddagsmad</h1>
+                <p>Om eftermiddagen vil børnene blive tilbudt et stykke brød til den frugt, som børnehuset har medbragt, når de er ude i skoven. </p>
+                <img src="images/mad.png" alt="billede af børn der spiser mad" class="kids">
+            </div>
+        </div>
+    </section>
+    <!-- POP-UP MAD PLANEN SLUT -->
+
+    <!-- TABEL MED KNAPPER -->
+    <container id="praktisk-tabel">
+        <section class="praktisk-tre">
+            <h1 class="kontaktinfo">KALENDER</h1>
+            <form>
+                <input id="kalenderButton" type="button" value="Læs mere" onclick="" />
+            </form>
+        </section>
+        <section class="praktisk-tre">
+            <h1 class="kontaktinfo1">HVERDAG I BØRNEHAVEN</h1>
+            <form>
+                <input id="hverdagButton" type="button" value="Læs mere" onclick="" />
+
+            </form>
+        </section>
+
+        <section class="praktisk-tre">
+            <h1 class="kontaktinfo">MADORDNING</h1>
+            <form>
+                <input id="madButton" type="button" value="Læs mere" onclick="" />
+
+            </form>
+        </section>
+    </container>
+    <!-- TABEL MED KNAPPER SLUT -->
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="flex-container">
+            <!-- KONTAKT INFO -->
+            <section class="footer-item">
+                <h1 class="kontaktinfo">KONTAKT</h1>
+                <br>
+                <p class="info1"><i class="fas fa-home"></i> &ensp;Børnehuset Jægergårdsgade <br> &ensp;&ensp; &emsp;Jægergårdsgade 68, 8000 Aarhus C</p>
+                <br>
+                <p class="info1"> <i class="fas fa-map-marker-alt"></i> &ensp;&ensp;Børnehavens base i skoven: <br> &ensp;&ensp; &emsp;Ørneredevej 23, 8270 Højbjerg </p>
+                <br>
+                <a href="tel:41857424" class="info"> <i class="fas fa-phone"></i> &ensp; +45 41 85 74 24</a> <br>
+            </section>
+            <!-- KONTAKT INFO SLUT-->
+
+            <!-- KORT -->
+            <section class="footer-item">
+                <section>
+                    <!-- the map will be loaded to #map -->
+                    <div id='map'></div>
+                </section>
+                <!-- mapbox -->
+                <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+                <!-- the map settings -->
+                <script>
+                    mapboxgl.accessToken = 'pk.eyJ1Ijoic2lsbGV0YW5nIiwiYSI6ImNqZmpkMGdyNzViZ2UzM25yaXg0cHlleW8ifQ.-J0VZa_CGDGeP-awavZTPw';
+
+                    var map = new mapboxgl.Map({
+                        container: 'map', // the container id
+                        style: 'mapbox://styles/silletang/cjgxe74c6005z2rp5y15ubrxb', // your style
+                        center: [10.20165, 56.14745],
+                        zoom: 16, // zoom
+                    });
+
+                </script>
+                <script src="java.js"></script>
+            </section>
+            <!-- KORT SLUT-->
+            <!-- ÅBNINGSTIDER -->
+            <section class="footer-item">
+                <h1 class="abningstider">ÅBNINGSTIDER</h1>
+                <br>
+                <p class="ugedage">
+                    Mandag: &emsp; 6:30 - 17:00 <br> Tirsdag: &nbsp;&emsp; 6:30 - 17:00 <br> Onsdag: &nbsp;&nbsp;&emsp;6:30 - 17:00 <br> Torsdag: &nbsp;&emsp;6:30 - 17:00 <br> Fredag: &nbsp;&nbsp;&nbsp;&emsp;6:30 - 16:30 <br>
+                </p>
+            </section>
+        </div>
+        <section class="some">
+            <a class="somelink" href="https://www.facebook.com/B%C3%B8rnehuset-J%C3%A6gerg%C3%A5rdsgade-403746986766465/?modal=admin_todo_tour"><i class="fab fa-facebook-square"></i> </a> &nbsp;
+            <a class="somelink" href="mailto:cecilie_tang@hotmail.com"><i class="fas fa-envelope"></i> </a>
+        </section>
+        <!-- ÅBNINGSTIDER SLUT -->
+    </footer>
+    <!-- FOOTER SLUT -->
+
+    <!-- JQUERY OG JAVASCRIPT SCRIPTS -->
+    <script src="scripts.js"></script>
+</body>

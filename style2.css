@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    overflow-y: hidden;
+}
+
+@font-face {
+    font-family: voresfont;
+    src: url(../font-renner/renner-light.otf);
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+}
+
+body {
+    font-family: voresfont;
+}
+
+@media all and (max-width: 699px) {
+    body {
+        flex-direction: column;
+    }
+    .text {
+        position: relative;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        margin-top: 100px;
+    }
+    .foo {
+        background-image: url(images/22mobil.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: left;
+
+    }
+
+    .bar {
+        background-image: url(images/22mobil.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .button {
+        background-color: #409c1c;
+        border: none;
+        color: white;
+        padding: 0px 31px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 40px;
+        font-size: 12px;
+        margin-top: 10px
+    }
+
+    #slogan img {
+        width: 80%;
+    }
+
+}
+
+@media all and (min-width: 700px) {
+    body {
+        flex-direction: row;
+    }
+}
+
+.foo,
+.bar {
+    flex-grow: 1;
+}
+
+.foo {
+    background-image: url(../images/11mobil.jpg);
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+    background-repeat: no-repeat;
+}
+
+.bar {
+    background-image: url(../images/22mobil.jpg);
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    top: 40px;
+    background-repeat: no-repeat;
+}
+
+.text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.button {
+    background-color: #409c1c;
+    border: none;
+    color: white;
+    padding: 0px 31px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 40px;
+    margin-top: 100px;
+}
+
+.button:hover {
+    background-color: #54b92d;
+}
+
+
+#slogan {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    vertical-align: baseline;
+    top: 0.5em;
+    color: white;
+    font-family: "proxima-regular";
+    font-size: 1.4em;
+}
