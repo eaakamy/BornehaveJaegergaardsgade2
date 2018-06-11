@@ -383,7 +383,7 @@ $(document).ready(function () {
 
     if(!events.length) {
       var div = createElement('div', 'event empty');
-      var span = createElement('span', '', 'No Events');
+      var span = createElement('span', '', 'Ingen begivenheder');
 
       div.appendChild(span);
       wrapper.appendChild(div);
