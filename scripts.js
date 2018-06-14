@@ -12,6 +12,9 @@ $(window).scroll(function () {
     }
 });
 
+
+
+
 //SLIDESHOW 1 BILLEDE 
 $(document).on('ready', function () {
 
@@ -129,6 +132,21 @@ $(document).ready(function () {
         $("#mad").fadeOut(300);
     });
 });
+//SMOOTH SCROLL TIL POP UP
+
+$(document).ready(function () {
+    $("#madButton").on('click', function (e) {
+        e.preventDefault();
+
+        var target = this.hash;
+        var $target = $(target);
+
+        $("#mad").animate({
+            'scrollTop': $target.offset().top
+        }, 1000, 'swing');
+    });
+});
+
 
 
 //KALENDER PÅ PRAKTISK SIDE
