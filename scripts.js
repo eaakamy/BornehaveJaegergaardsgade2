@@ -1,5 +1,5 @@
 //SCROLL DOWN FUNKTION
-
+/*
 $(window).scroll(function () {
     var scroll = $(window).scrollTop();
 
@@ -10,7 +10,7 @@ $(window).scroll(function () {
         $("nav").removeClass("scrolling"),
             $(".logo").removeClass("scrollinglogo");
     }
-});
+}); */
 
 
 
@@ -59,7 +59,7 @@ $(document).on('ready', function () {
 
 
 
-$(function () {
+/*$(function () {
     $('.menu-ac').click(function () {
         $(this).next('.ac').slideToggle(500);
     });
@@ -68,7 +68,7 @@ $(function () {
             width: "toggle"
         });
     });
-});
+}); */
 
 //SMOOTH SCROLL TIL MENU OG PILEN 
 
@@ -133,7 +133,7 @@ $(document).ready(function () {
     });
 });
 //SMOOTH SCROLL TIL POP UP
-
+/*
 $(document).ready(function () {
     $("#madButton").on('click', function (e) {
         e.preventDefault();
@@ -146,7 +146,7 @@ $(document).ready(function () {
         }, 1000, 'swing');
     });
 });
-
+*/
 
 
 //KALENDER PÅ PRAKTISK SIDE
@@ -516,3 +516,5 @@ $(function () {
     });
     
 });
+
+

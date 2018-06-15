@@ -1101,7 +1101,7 @@ body {
         text-transform: uppercase;
     }
     .icon1 {
-        z-index: 2;
+       
         margin-top: -75%;
         margin-left: -20%;
         width: 150%;
@@ -1110,7 +1110,7 @@ body {
     }
 
     .icon2 {
-        z-index: 2;
+     
         margin-top: -85%;
         margin-left: -20%;
         width: 150%;
@@ -1120,7 +1120,7 @@ body {
     }
 
     .icon3 {
-        z-index: 2;
+      
         margin-top: -76%;
         margin-left: -20%;
         width: 150%;
