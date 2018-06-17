@@ -358,17 +358,21 @@ body {
     #galleri {
         text-align: center;
         margin-bottom: 10%;
-        font-size: 2.4em;
+   
         margin-top: 34%;
-        font-family: 'Gaegu', cursive;
+         font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
 
     }
 
     .anmeldelser {
         text-align: center;
-        font-size: 2.4em;
+     
         margin-top: 25%;
-        font-family: 'Gaegu', cursive;
+      font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
 
     }
     /* GALLERI SECTION SLUT */
@@ -389,8 +393,9 @@ body {
         font-size: 1.6em;
         margin-top: 40%;
         margin-bottom: -5%;
-        font-family: 'Gaegu', cursive;
-        font-size: 2.4em;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     .personale {
@@ -473,8 +478,9 @@ body {
 
     .knapper1,
     .knapper {
-        font-family: 'Gaegu', cursive;
-        font-size: 1.5em;
+        font-size: 1.2em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
         text-align: center;
     }
 
@@ -1054,8 +1060,9 @@ body {
     .overskrift-indhold {
         text-align: center;
         margin-bottom: 4%;
-        font-family: 'Gaegu', cursive;
-        font-size: 1.8em;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
 
     }
     #indmeldelsetekst {
@@ -1101,7 +1108,7 @@ body {
         text-transform: uppercase;
     }
     .icon1 {
-       
+
         margin-top: -75%;
         margin-left: -20%;
         width: 150%;
@@ -1110,7 +1117,7 @@ body {
     }
 
     .icon2 {
-     
+
         margin-top: -85%;
         margin-left: -20%;
         width: 150%;
@@ -1120,7 +1127,7 @@ body {
     }
 
     .icon3 {
-      
+
         margin-top: -76%;
         margin-left: -20%;
         width: 150%;
@@ -1137,8 +1144,9 @@ body {
         text-align: center;
         margin-bottom: 4%;
         margin-top: 10%;
-        font-family: 'Gaegu', cursive;
-        font-size: 2.4em;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
     /************************************ INDMELDELSE SIDE SLUT ************************************/
     /************************************ FOOTER ************************************/
@@ -1404,7 +1412,9 @@ body {
         text-align: center;
         margin-top: 4%;
         margin-bottom: -3%;
-        font-family: 'Gaegu', cursive;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
 
     }
 
@@ -1549,8 +1559,9 @@ body {
     .anmeldelser {
         text-align: center;
         margin-top: 16%;
-        font-size: 2.4em;
-        font-family: 'Gaegu', cursive;
+         font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
 
@@ -1627,8 +1638,9 @@ body {
     #registration {
         text-align: center;
         margin-bottom: 4%;
-        font-size: 2.4em;
-        font-family: 'Gaegu', cursive;
+      font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
     #indmeldelsetekst {
         width: 40%;
@@ -1639,8 +1651,9 @@ body {
     .overskrift-indhold {
         text-align: center;
         margin-bottom: 4%;
-        font-family: 'Gaegu', cursive;
-        font-size: 2em;
+       font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
 
@@ -1662,8 +1675,9 @@ body {
         text-align: center;
         font-size: 1.6em;
         margin-bottom: -5%;
-        font-family: 'Gaegu', cursive;
-        font-size: 2.4em;
+       font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     .regular {
@@ -1734,13 +1748,15 @@ body {
     }
 
     .knapper {
-        font-family: 'Gaegu', cursive;
-        font-size: 2em;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     .knapper1 {
-        font-family: 'Gaegu', cursive;
-        font-size: 2em;
+       font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     input[type=button] {
@@ -2523,8 +2539,9 @@ body {
         text-align: center;
         margin-top: 4%;
         margin-bottom: -3%;
-        font-family: 'Gaegu', cursive;
-        font-size: 2.4em;
+         font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
     .popup {
         width: 900px;
@@ -2707,8 +2724,9 @@ body {
         text-align: center;
         margin-top: 8%;
         margin-bottom: -5%;
-        font-size: 2.4em;
-        font-family: 'Gaegu', cursive;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
 
@@ -2724,11 +2742,13 @@ body {
 
     /* PERSONALE */
     #opersonale {
-        font-size: 2.4em;
+        
         text-align: center;
         margin-top: 4%;
         margin-bottom: -3%;
-        font-family: 'Gaegu', cursive;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     .personale {
@@ -3441,15 +3461,19 @@ body {
     }
 
     .knapper {
-        font-family: 'Gaegu', cursive;
+
         text-align: center;
-        font-size: 2em;
+        font-size: 1.5em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     .knapper1 {
-        font-family: 'Gaegu', cursive;
+ 
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
         text-align: center;
-        font-size: 2em;
+        font-size: 1.5em;
         line-height: 30px;
     }
 
@@ -3579,9 +3603,11 @@ body {
     }
     #registration {
         text-align: center;
-        font-size: 2.4em;
+     
         margin-bottom: 3%;
-        font-family: 'Gaegu', cursive;
+        font-size: 1.7em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
     }
 
     #indmeldelsetekst {
@@ -3595,8 +3621,9 @@ body {
     .overskrift-indhold {
         text-align: center;
         margin-bottom: 2%;
-        font-family: 'Gaegu', cursive;
-        font-size: 1.8em;
+        font-size: 1.4em;
+        font-family: 'Caveat Brush', cursive;
+        letter-spacing: 0.1em;
 
     }
     /************************************ INDMELDELSE SIDE SLUT ************************************/
